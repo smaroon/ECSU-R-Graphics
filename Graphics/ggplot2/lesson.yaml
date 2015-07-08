@@ -1,0 +1,97 @@
+- Class: meta
+  Course: Graphics
+  Lesson: ggplot2
+  Author: Sarah Maroon
+  Type: Standard
+  Organization: Eastern Connecticut State University
+  Version: 2.3.1
+######################################################
+
+- Class: text
+  Output: "The ggplot2 package is a vast and powerful graphing package that is 
+  implemented on top of the R statisical package. Created by Hadley Wickham in 
+  2005, ggplot 2 has since become one of the most popular R packages."
+
+
+- Class: text
+  Output: "This lesson is designed to just scratch the surface of ggplot2 as an 
+  introduction. We'll examine the simplest plot, qplot() for quick plot."
+  
+- Class: text
+  Output: "This lesson has already loaded the ggplot2 package and the data set
+  'mpg'."
+
+- Class: cmd_question
+  Output: "We will take a look at the mpg data set and use qplot() to generate a graphic.
+  First, we need to know what is in the 'mpg' data set. Enter head(mpg)"
+  CorrectAnswer: head(mpg)
+  AnswerTests: omnitest(correctExpr='head(mpg)')
+  
+  
+- Class: text
+  Output: "The head() function is allowing us to see the first 6 rows of data and 
+  the columns. Let's use this data to generate a graphic. "
+
+
+- Class: cmd_question
+  Output: "First, take a look at the qplot() reference file. Type ?qplot to
+  open the document."
+  CorrectAnswer: ?qplot
+  AnswerTests: omnitest(correctExpr='?qplot')
+
+  
+- Class: cmd_question
+  Output: "Now let's take a look at a basic graph depicting the occurances of
+  the different class types. Type qplot(x = mpg$class) "
+  CorrectAnswer: qplot(x = mpg$class)
+  AnswerTests: omnitest(correctExpr='qplot(x = mpg$class)')
+
+  
+- Class: cmd_question
+  Output: "As you can see we created a histogram for the different vehicle classes. What if
+  we wanted to know the relation between highway mpg and the number of cylinders?
+  Type qplot(x = mpg$hwy, y = mpg$cyl) "
+  CorrectAnswer: qplot(x = mpg$hwy, y = mpg$cyl)
+  AnswerTests: omnitest(correctExpr='qplot(x = mpg$hwy, y = mpg$cyl)')
+  
+- Class: cmd_question
+  Output: "We can see that this creates a scatterplot. The graph generated uses the data$column 
+  format for the x and y axis and this could be difficult to read. Let's rename these, type
+  qplot(x = mpg$hwy, y = mpg$cyl, xlab = 'MPG', ylab = 'Cylinders')"
+  CorrectAnswer: qplot(x = mpg$hwy, y = mpg$cyl, xlab = "MPG"", ylab = "Cylinders")
+  AnswerTests: omnitest(correctExpr='qplot(x = mpg$hwy, y = mpg$cyl, xlab = "MPG", ylab = "Cylinders")')
+
+  
+- Class: video
+  Output: "Would you like to see a brief introductory video to ggplot2?"
+  VideoLink: https://www.youtube.com/watch?v=eclAMC_WY4U
+
+- Class: mult_question
+  Output: What keyword would you use to add a title to a graph using qplot()?
+  AnswerChoices: "head; main; title; top"
+  CorrectAnswer: main
+  AnswerTests: omnitest(correctVal='main')
+  Hint: "use ?qplot for help"
+
+- Class: cmd_question
+  Output: "Now lets add a title to our previous graph called 'My Graph'" 
+  CorrectAnswer: qplot(x = mpg$hwy, y = mpg$cyl, xlab = "MPG", ylab = "Cylinders", main = "My Graph")
+  AnswerTests: omnitest(correctExpr='qplot(x = mpg$hwy, y = mpg$cyl, xlab = "MPG", ylab = "Cylinders", main = "My Graph")')
+
+  
+- Class: mult_question
+  Output: "How could we change the size of the plots based on the vehicle's class?"
+  AnswerChoices: "size = mpg$trans; shape = mpg$class; size = mpg$class; shape = mpg$cyl"
+  CorrectAnswer: size = mpg$class
+  AnswerTests: omnitest(correctVal='size = mpg$class')
+  
+
+- Class: cmd_question
+  Output: "Add to the graph so the plot point's size are based on the vehicle class"
+  CorrectAnswer: qplot(x = mpg$hwy, y = mpg$cyl, xlab = "MPG", ylab = "Cylinders", main = "My Graph", size = mpg$class)
+  AnswerTests: omnitest(correctExpr='qplot(x = mpg$hwy, y = mpg$cyl, xlab = "MPG", ylab = "Cylinders", main = "My Graph", size = mpg$class)')
+
+- Class: video
+  Output: "Want to learn more and visit the ggplot2 reference site?"
+  VideoLink: http://docs.ggplot2.org/current/
+
